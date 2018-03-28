@@ -100,4 +100,32 @@ boutons.forEach((element) => {
   element.addEventListener("click", changePanel);
 });
 
-//changer le titre avec le titre du bouton
+//cibler le titre avec le titre du bouton
+let titre = document.querySelector("#header h1");
+
+//stocker le contenu du premier titre
+let titreDeBase = titre.innerText;
+
+let changeTitre = function (event) {
+
+  //cibler le contenu de ton bouton
+  let boutonContenu = event.target.innerText;
+
+  //changer le contenu du titre
+  titre.innerText = boutonContenu;
+};
+
+let remettreTitre = function () {
+  titre.innerText = titreDeBase;
+};
+
+boutons.forEach(element => {
+  element.addEventListener("mouseover", changeTitre);
+  element.addEventListener("mouseout", remettreTitre);
+
+});
+
+
+
+
+// EXO 3
