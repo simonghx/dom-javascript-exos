@@ -6490,5 +6490,9 @@ a.text-dark:hover, a.text-dark:focus {
   .table-bordered th,
   .table-bordered td {
     border: 1px solid #ddd !important; } }
+.panel {
+  display: none; }
+  .panel.active {
+    display: block; }
 
 /*# sourceMappingURL=style.css.map */

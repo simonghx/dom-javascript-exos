@@ -14,39 +14,39 @@
 
 <body>
   <!-- Header de la page -->
-  <header>
+  <header id="header">
     <div class="container text-center mt-5">
       <h1 class="mb-5">JavaScript - DOM</h1>
       <div class="row text-center mx-auto">
         <div class="col">
-          <a href="#exo1" role="button" class="btn btn-danger">Exo 1</a>
+          <a href="" role="button" class="btn btn-danger active" data-position="1">Exo 1</a>
         </div>
         <div class="col">
-          <a href="#" role="button" class="btn btn-danger">Exo 2</a>
+          <a href="" role="button" class="btn btn-danger" data-position="2">Exo 2</a>
         </div>
         <div class="col">
-          <a href="#" role="button" class="btn btn-danger">Exo 3</a>
+          <a href="" role="button" class="btn btn-danger" data-position="3">Exo 3</a>
         </div>
         <div class="col">
-          <a href="#" role="button" class="btn btn-danger">Exo 4</a>
+          <a href="" role="button" class="btn btn-danger" data-position="4">Exo 4</a>
         </div>
         <div class="col">
-          <a href="#" role="button" class="btn btn-danger">Exo 5</a>
+          <a href="" role="button" class="btn btn-danger" data-position="5">Exo 5</a>
         </div>
         <div class="col">
-          <a href="#" role="button" class="btn btn-danger">Exo 6</a>
+          <a href="" role="button" class="btn btn-danger" data-position="6">Exo 6</a>
         </div>
         <div class="col">
-          <a href="#" role="button" class="btn btn-danger">Exo 7</a>
+          <a href="" role="button" class="btn btn-danger" data-position="7">Exo 7</a>
         </div>
         <div class="col">
-          <a href="#" role="button" class="btn btn-danger">Exo 8</a>
+          <a href="" role="button" class="btn btn-danger" data-position="8">Exo 8</a>
         </div>
         <div class="col">
-          <a href="#" role="button" class="btn btn-danger">Exo 9</a>
+          <a href="" role="button" class="btn btn-danger" data-position="9">Exo 9</a>
         </div>
         <div class="col">
-          <a href="#" role="button" class="btn btn-danger">Exo 10</a>
+          <a href="" role="button" class="btn btn-danger" data-position="10">Exo 10</a>
         </div>
 
       </div>
@@ -54,34 +54,36 @@
   </header>
   <!-- Fin du header -->
 
-  <!-- EXO 1 -->
-  <section id="exo1" class="container my-5">
-    <h2 data-infor="more information">Le titre</h2>
-    <p>Les propriétés à retrouver dans la documentation:
-      <ul>
-        <li>innerText</li>
-        <li>innerHTML</li>
-        <li>querySelector()</li>
-        <li>querySelectorAll()</li>
-        <li>style</li>
-        <li>classList</li>
-      </ul>
+  <div id="panel-container" class="container">
+    <!-- EXO 1 -->
+    <section id="exo1" class="my-5 panel active">
+      <h2 data-infor="more information">Le titre</h2>
+      <p>Les propriétés à retrouver dans la documentation:
+        <ul>
+          <li>innerText</li>
+          <li>innerHTML</li>
+          <li>querySelector()</li>
+          <li>querySelectorAll()</li>
+          <li>style</li>
+          <li>classList</li>
+        </ul>
 
-      <br> changer le contenu du h2 par "le titre modifié"
-      <br> changer la couleur du h2
-      <br> ajouter une class background bootstrap au h2
+        <br> changer le contenu du h2 par "le titre modifié"
+        <br> changer la couleur du h2
+        <br> ajouter une class background bootstrap au h2
 
-    </p>
-  </section>
-  <!-- FIN  EXO1 -->
+      </p>
+    </section>
+    <!-- FIN  EXO1 -->
 
-  <!-- EXO2 -->
-  <section id="exo2">
-    <div class="container my-4">
-      <button class="btn btn-primary">Click</button>
+    <!-- EXO2 -->
+    <section id="exo2" class="panel">
+      <div class="my-4">
+        <button class="btn btn-primary">Click</button>
 
-    </div>
-  </section>
+      </div>
+    </section>
+  </div>
 
 
   <!-- SCRIPTS -->
