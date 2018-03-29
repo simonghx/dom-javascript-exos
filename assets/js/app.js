@@ -188,3 +188,6 @@ let changeCube = function (event) {
 boutonExo4.addEventListener("click", changeCube);
 
 
+//EXO 5
+
+
