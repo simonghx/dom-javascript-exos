@@ -6495,4 +6495,11 @@ a.text-dark:hover, a.text-dark:focus {
   .panel.active {
     display: block; }
 
+.col-5 {
+  height: 300px;
+  width: 300px; }
+  .col-5 .panel-move {
+    width: 200px;
+    height: 200px; }
+
 /*# sourceMappingURL=style.css.map */
