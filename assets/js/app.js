@@ -196,8 +196,6 @@ let panier = document.querySelector("#exo5 .panier");
 //récupérer mon bouton
 let boutonOeuf = document.querySelector("#exo5 .add-egg");
 
-let imgOeuf = document.createElement("img");
-
 //créer la fonction
 let createOeuf = function (event) {
 
