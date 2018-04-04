@@ -133,12 +133,76 @@
     <!-- Fin de l'exo 5 -->
 
     <!-- EXO 6 -->
-    <section id="exo6" class="panel my-4">
+    <section id="exo6" class="panel my-4 bg-light">
       <h2>Création calculatrice</h2>
       <h3>Niveau 1</h3>
       <input type="text" class="nb1"> +
       <input type="text" class="nb2">
       <button class="calc1">=</button>
+      <span class="result1"></span>
+
+      <h3>Niveau 2</h3>
+      <div class="calculette bg-dark rounded">
+        <div class="hautcalc container text-center py-4 text-white">
+          <span class="col-12 calcatt"></span>
+          <input type="text" class="col-12 inputCalc2">
+        </div>
+        <div class="bascalc pb-4 container">
+          <div class="row my-1 text-center justify-content-around">
+
+            <button class="calcnb1 nbscalc btn btn-light col-sm-2" value="1">1</button>
+
+
+            <button class="calcnb2 nbscalc btn btn-light col-sm-2" value="2">2</button>
+
+            <button class="calcnb3 nbscalc btn btn-light col-sm-2" value="3">3</button>
+
+            <button class="calcplus btn btn-primary operateur col-sm-2" value="+">+</button>
+
+          </div>
+          <div class="row my-1 text-center justify-content-around">
+
+            <button class="calcnb4 nbscalc btn btn-light col-sm-2" value="4">4</buttoncla>
+
+
+              <button class="calcnb5 nbscalc btn btn-light col-sm-2" value="5">5</button>
+
+              <button class="calcnb6 nbscalc btn btn-light col-sm-2" value="6">6</button>
+
+              <button class="calcmoins btn btn-primary operateur col-sm-2" value="-">-</button>
+
+          </div>
+          <div class="row my-1 text-center justify-content-around">
+
+            <button class="calcnb7 nbscalc btn btn-light col-sm-2" value="7">7</button>
+
+            <button class="calcnb8 nbscalc btn btn-light col-sm-2" value="8">8</button>
+
+            <button class="calcnb9 nbscalc btn btn-light col-sm-2" value="9">9</button>
+
+            <button class="calcfois btn btn-primary operateur col-sm-2" value="*">*</button>
+
+          </div>
+          <div class="row my-1 text-center justify-content-around">
+
+            <button class="btn btn-danger clear col-sm-2">C</button>
+
+            <button class="calcnb0 nbscalc btn btn-light col-sm-2" value="0">0</button>
+
+
+            <button class="calcvirgule nbscalc btn btn-light col-sm-2" value=".">.</button>
+
+
+            <button class="calcdiviser btn btn-primary operateur col-sm-2" value="/">/</button>
+
+          </div>
+          <div class="row my-1 container justify-content-around mx-auto">
+
+            <button class="calcegal btn btn-success col-sm-8">=</button>
+
+          </div>
+        </div>
+      </div>
     </section>
     <!-- Fin de l'exo 6 -->
   </div>
