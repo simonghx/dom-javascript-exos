@@ -270,12 +270,21 @@ let operation = function (event) {
     spanCalc.textContent += event.target.value;
   } else if (spanCalc.textContent == "" && inputCalc.value == "") {
 
+    if (event.target.value == "*" || event.target.value == "/") {
+      spanCalc.textContent = "You need to choose a number before";
+      inputCalc.value = "";
+      inputCalc.classList.add("border", "border-danger");
+      return;
+    }
     inputCalc.value = event.target.value;
-    console.dir(inputCalc.value);
+
+
+
   } else {
     spanCalc.textContent = inputCalc.value + event.target.value;
     inputCalc.value = "";
   }
+  inputCalc.classList.remove("border", "border-danger");
 
 };
 
