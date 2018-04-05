@@ -7,8 +7,8 @@ let inputTask = document.querySelector("#exo7 .input-todo");
 // récupérer la liste
 let groupeList = document.querySelector("#exo7 .list-group");
 
-console.log(groupeList);
-
+// récupérer les boutons
+let btnTags = document.querySelectorAll("#exo7 .nav-todo .btn");
 
 // functions
 
@@ -17,28 +17,42 @@ let createTask = function (event) {
   // empêche le refresh par défaut de la page
   event.preventDefault();
 
-  //créer un élément de liste
-  let listItem = document.createElement("li");
+  if (inputTask.value == "") {
+    inputTask.classList.add("border", "border-danger");
+    return;
 
-  // ajouter une class à mon item
-  listItem.classList.add("list-group-item");
-  // ajouter une valeur
-  listItem.textContent = inputTask.value;
+  } else {
 
-  //supprimer le contenu de l'input
-  inputTask.value = "";
+    //créer un élément de liste
+    let listItem = document.createElement("li");
 
-  // ajouter les icônes
+    // ajouter une class à mon item
+    listItem.classList.add("list-group-item", "row");
+    // ajouter une valeur
+    listItem.innerHTML = '<div class="col-6 text-left d-inline-block">' + inputTask.value + '</div><div class="icones col-6 text-right d-inline-block"><i class="far fa-window-close mx-1"></i><i class="fas fa-check mx-1"></i><i class="far fa-edit mx-1"></i></div>';
 
-  // ajouter le li dans la liste
-  groupeList.appendChild(listItem);
+    //supprimer le contenu de l'input
+    inputTask.value = "";
+
+    // ajouter le li dans la liste
+    groupeList.appendChild(listItem);
 
 
+  }
 
+  inputTask.classList.remove("border", "border-danger");
 
-}
+};
+
+let filtrer = function () {
+
+};
 
 
 // ajout d'écouteur d'évènement
 
 btnTodo.addEventListener("click", createTask);
+
+btnTags.forEach(element => {
+  element.addEventListener("click", filtrer);
+});
