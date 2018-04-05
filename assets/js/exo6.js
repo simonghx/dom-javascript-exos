@@ -43,6 +43,11 @@ let spanCalc = document.querySelector("#exo6 .hautcalc .calcatt");
 
 let btnClear = document.querySelector("#exo6 .clear");
 
+// variable qui récupère le dernier élément de mon Span
+let longueur;
+let nombreAtt;
+let resultatFinal;
+
 // functions
 
 // récupérer le contenu de l'input et l'envoyer dans le span
@@ -53,24 +58,41 @@ let clearCalc = function () {
 
 let operation = function (event) {
 
+  // Si mon span calc affiche le résutat et que je n'ai pas de contenu dans le input
   if (spanCalc.textContent != "" && inputCalc.value == "") {
-    spanCalc.textContent += event.target.value;
-  } else if (spanCalc.textContent == "" && inputCalc.value == "") {
 
+    // Si on retrouve l'opérateur
+    if (spanCalc.textContent.match(/[\+\/\-\*]/)) {
+      spanCalc.textContent = spanCalc.textContent.replace(/[\+\/\-\*]/, event.target.value);
+      //Sinon
+    } else {
+      spanCalc.textContent += event.target.value;
+    }
+
+    // sinon s'il n'y a pas de contenu dans le span et aucun contenu dans le input
+  } else if (spanCalc.textContent == "" && inputCalc.value == "") {
+    //si l'opérateur est le fois ou le divisé
     if (event.target.value == "*" || event.target.value == "/") {
       spanCalc.textContent = "You need to choose a number before";
       inputCalc.value = "";
       inputCalc.classList.add("border", "border-danger");
       return;
     }
+
+    // la valeur de l'input est = à la valeur de la cible
     inputCalc.value = event.target.value;
 
+    //si le contenu du span n'est pas vide ainsi que le contenu de l'input
+  } else if (spanCalc.textContent != "" && inputCalc.value != "") {
+    resultatCalc();
+    spanCalc.textContent = spanCalc.textContent + event.target.value;
 
-
+    //sinon le contenu du span est égale à la valeur de l'input
   } else {
     spanCalc.textContent = inputCalc.value + event.target.value;
     inputCalc.value = "";
   }
+  //on enlève la class border
   inputCalc.classList.remove("border", "border-danger");
 
 };
@@ -80,28 +102,28 @@ let insertValue = function (event) {
 };
 
 let resultatCalc = function () {
-  let longueur = spanCalc.textContent.length - 1;
+  longueur = spanCalc.textContent.length - 1;
 
   switch (spanCalc.textContent[longueur]) {
-
     case "+":
       spanCalc.textContent = parseFloat(spanCalc.textContent) + parseFloat(inputCalc.value);
-      inputCalc.value = null;
+      inputCalc.value = "";
       break;
 
     case "-":
       spanCalc.textContent = parseFloat(spanCalc.textContent) - parseFloat(inputCalc.value);
-      inputCalc.value = null;
+      inputCalc.value = "";
       break;
 
     case "*":
       spanCalc.textContent = parseFloat(spanCalc.textContent) * parseFloat(inputCalc.value);
-      inputCalc.value = null;
+      inputCalc.value = "";
       break;
 
     case "/":
       spanCalc.textContent = parseFloat(spanCalc.textContent) / parseFloat(inputCalc.value);
-      inputCalc.value = null;
+      // spanCalc.textContent = resultatFinal;
+      inputCalc.value = "";
       break;
 
     default:
