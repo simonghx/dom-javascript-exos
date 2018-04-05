@@ -6510,4 +6510,12 @@ a.text-dark:hover, a.text-dark:focus {
   margin-left: 100px;
   margin-right: 100px; }
 
+#exo7 .list-group-item a {
+  text-decoration: none;
+  color: black; }
+  #exo7 .list-group-item a svg {
+    height: 20px; }
+#exo7 .line {
+  text-decoration: line-through; }
+
 /*# sourceMappingURL=style.css.map */
