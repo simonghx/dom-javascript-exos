@@ -85,7 +85,7 @@ let operation = function (event) {
     //si le contenu du span n'est pas vide ainsi que le contenu de l'input
   } else if (spanCalc.textContent != "" && inputCalc.value != "") {
     resultatCalc();
-    spanCalc.textContent = spanCalc.textContent + event.target.value;
+    spanCalc.textContent += event.target.value;
 
     //sinon le contenu du span est égale à la valeur de l'input
   } else {
