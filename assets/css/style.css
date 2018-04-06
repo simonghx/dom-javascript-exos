@@ -6518,4 +6518,10 @@ a.text-dark:hover, a.text-dark:focus {
 #exo7 .line {
   text-decoration: line-through; }
 
+.all-done li.norm {
+  display: none !important; }
+
+.all-todo .done {
+  display: none !important; }
+
 /*# sourceMappingURL=style.css.map */

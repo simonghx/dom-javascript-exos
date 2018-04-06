@@ -93,14 +93,16 @@ let checker = function (event) {
 
   if (activation == 0) {
     //barrer le texte
-    parentTest.classList.add("line");
+    parentTest.classList.add("line", "done");
+    parentTest.classList.remove("norm");
     activation = 1;
     event.target.setAttribute("data-activation", activation);
 
   }
   else {
     // retirer le texte barré
-    parentTest.classList.remove("line");
+    parentTest.classList.remove("line", "done");
+    parentTest.classList.add("norm");
     activation = 0;
     event.target.setAttribute("data-activation", activation);
   }
@@ -120,16 +122,10 @@ let createTask = function (event) {
     //créer un élément de liste
     listItem = document.createElement("li");
 
-    //ajouter un ID
-    listItem.id = "list-" + position;
-    position++;
-    console.log(listItem);
-    console.log(position);
-
     // ajouter une class à mon item
-    listItem.classList.add("list-group-item", "d-flex", "row");
+    listItem.classList.add("list-group-item", "d-flex", "row", "list-panel", "norm");
     // ajouter une valeur
-    listItem.innerHTML = '<div class="text-item col-6 text-left">' + inputTask.value + '</div><div class="icones col-6 text-right"><a href="" class="delete btn btn-light" data-activation="0"><i class="far fa-window-close mx-1"></i></a><a class="check btn btn-light" href="" data-activation="0"><i class="fas fa-check mx-1"></i></a><a class="edit btn btn-light" href="" data-activation="0"><i class="far fa-edit mx-1"></i></a></div>';
+    listItem.innerHTML = '<div class="text-item col-6 text-left">' + inputTask.value + '</div><div class="icones col-6 text-right"><a href="" class="delete btn btn-light mx-1" data-activation="0"><i class="far fa-window-close"></i></a><a class="check btn btn-light mx-1" href="" data-activation="0"><i class="fas fa-check"></i></a><a class="edit btn btn-light mx-1" href="" data-activation="0"><i class="far fa-edit"></i></a></div>';
 
     //supprimer le contenu de l'input
     inputTask.value = "";
@@ -144,9 +140,9 @@ let createTask = function (event) {
 
 
     // ecouteur d'évènements icones
-    icnSuppr.addEventListener("click", supprimer);
-    icnModif.addEventListener("click", modifier);
-    icnCheck.addEventListener("click", checker);
+    icnSuppr.addEventListener("click", supprimer, true);
+    icnModif.addEventListener("click", modifier, true);
+    icnCheck.addEventListener("click", checker, true);
 
 
   }
@@ -155,7 +151,30 @@ let createTask = function (event) {
 
 };
 
-let filtrer = function () {
+let filtrer = function (event) {
+  // empêche le refresh par défaut de la page
+  event.preventDefault();
+  let btnTarget = event.target;
+
+
+  // bouton all affiche tous les éléments
+  if (btnTarget.value == "all") {
+    groupeList.classList.remove("all-done");
+    groupeList.classList.remove("all-todo");
+
+  } else if (btnTarget.value == "done") {
+    groupeList.classList.remove("all-todo");
+    groupeList.classList.add("all-done");
+
+  } else {
+    groupeList.classList.remove("all-done");
+    groupeList.classList.add("all-todo");
+
+  }
+  // bouton done  n'affiche que les éléments qui ont la classe .line
+
+  // bouton todo n'affiche que les éléments qui doivent être faits
+
 
 };
 
