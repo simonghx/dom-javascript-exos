@@ -10,12 +10,16 @@ let groupeList = document.querySelector("#exo7 .list-group");
 // récupérer les boutons
 let btnTags = document.querySelectorAll("#exo7 .nav-todo .btn");
 
+// div de contenu dans les li
+let parentText;
+
 let icnSuppr;
 let icnModif;
 let icnCheck;
 let listItem;
 let position = 0;
 // let activation;
+let inputModif;
 
 // functions
 
@@ -23,11 +27,57 @@ let supprimer = function (event) {
   // empêche le refresh par défaut de la page
   event.preventDefault();
 
+  let parentTest = event.target.closest(".list-group-item");
+  groupeList.removeChild(parentTest);
+
+};
+
+let submitModif = function (event) {
+  // empêche le refresh par défaut de la page
+  event.preventDefault();
+
+  if (inputModif.value == "") {
+    inputModif.classList.add("border", "border-danger");
+    return;
+  } else {
+    // le contenu de la div = input.value
+    parentText.textContent = inputModif.value;
+  }
+
 };
 
 let modifier = function (event) {
   // empêche le refresh par défaut de la page
   event.preventDefault();
+  let parentTest = event.target.closest(".list-group-item");
+  parentText = parentTest.querySelector("#exo7 .text-item");
+
+
+  // ajouter un input pour modifier le contenu
+  inputModif = document.createElement("input");
+  inputModif.classList.add("input-modif");
+  inputModif.setAttribute("type", "text");
+  inputModif.setAttribute("value", "");
+
+  // création du bouton de l'input
+  let btnModif = document.createElement("button");
+  btnModif.classList.add("btn", "btn-light");
+  btnModif.textContent = "Modifier";
+
+  // écouteur d'évènement
+  btnModif.addEventListener("click", submitModif);
+
+  // la valeur de l'input sera = au contenu de la li
+  inputModif.value = parentText.textContent;
+
+  //on supprime le parentText
+  parentText.textContent = "";
+
+  // on ajoute le input dans le li
+  parentText.appendChild(inputModif);
+  //on ajoute le bouton dans le li
+  parentText.appendChild(btnModif);
+
 
 };
 
