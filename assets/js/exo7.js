@@ -49,6 +49,7 @@ let submitModif = function (event) {
 let modifier = function (event) {
   // empêche le refresh par défaut de la page
   event.preventDefault();
+
   let parentTest = event.target.closest(".list-group-item");
   parentText = parentTest.querySelector("#exo7 .text-item");
 
